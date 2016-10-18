@@ -1,19 +1,22 @@
 #include <iostream>
 using namespace std;
 
+using array = std::vector < double >;
+using matrix = std::vector < array >;
+
 int main()
 {
 	
 	const int size = 4;
-	const double a[size][size]{ 
-	{ 8.2, -3.2, 14.2, 14.8 },
+	matrix a = { { 8.2, -3.2, 14.2, 14.8 },
 	{ 5.6, -12.0, 15.0, -6.4 },
 	{ 5.7, 3.6, -12.4, -2.3 },
 	{ 6.8, 13.2, -6.3, -8.7} };
-	const double b[size] {-8.4, 4.5, 3.3, 14.3};
+	array b =  {-8.4, 4.5, 3.3, 14.3};
 	
 	//LU decomposition
-	double l[size][size]{}, u[size][size]{};
+	matrix l(size, array(size));
+	matrix u(size, array(size));
 	for (int i = 0; i < size; u[i][i++] = 1);
 	for (int k = 0; k < size; ++k)
 	{
@@ -40,7 +43,7 @@ int main()
 	for (int i = 0; i < size; ++i)
 		det *= l[i][i];
 	//solve the system of equations
-	double y[size]{}, x[size]{};
+	array y(size), x(size);
 	for (int i = 0; i < size; ++i)
 	{
 		y[i] = b[i];
@@ -55,10 +58,10 @@ int main()
 			x[i] -= u[i][j] * x[j];
 	}
 	//inverse matrix
-	double inverse[size][size]{};
+	matrix inverse(size, array(size);
 	for (int k = 0; k < size; ++k)
 	{
-		double y[size]{};
+		array y(size);
 		for (int i = 0; i < size; ++i)
 		{
 			y[i] = ((i==k) ? 1 : 0);
@@ -114,4 +117,3 @@ int main()
 	}
 	return 0;
 }
-
