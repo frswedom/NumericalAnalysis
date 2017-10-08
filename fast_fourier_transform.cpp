@@ -10,6 +10,7 @@ using list = vector<double>;
 using matrix = vector<list>;
 using uint = size_t;
 const double pi = 3.1415926535897932384626433832795;
+const double e = 2.718281828459045;
 const uint N = 1024;
 
 double f(double t)
@@ -17,6 +18,10 @@ double f(double t)
 	return -10 * sin(pi*t / 18) + 5 * sin(pi*t / 80); // T1 = 36  T2 = 160
 }
 
+double f2(double t)
+{
+	return -10 * sin(pi*t / 18)*pow(e, -t * t /2) + 5 * sin(pi*t / 80); // T1 = 36  T2 = 160
+}
 
 void fft(vector<base> & a, bool invert) {
 	int n = (int)a.size();
