@@ -23,6 +23,15 @@ double f2(double t)
 	return -10 * sin(pi*t / 18)*pow(e, -t * t /2) + 5 * sin(pi*t / 80); // T1 = 36  T2 = 160
 }
 
+double f3(double t)
+{
+    return sin(pi*t / 18)*log2(t * t /2);
+}
+
+double f4(double t)
+{
+    return pow(sin(pi*t), 3)*pow(e, -t * t);
+}
 void fft(vector<base> & a, bool invert) {
 	int n = (int)a.size();
 
