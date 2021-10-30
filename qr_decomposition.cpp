@@ -68,10 +68,11 @@ int main()
 {
 	int n = 4;
 	matrix A = { { 15.7, 6.6, -5.7, 11.5 },
-	{ 8.8, -6.7, 5.5, -4.5 },
-	{ 6.3, -5.7, -23.4, 6.6 },
-	{ 14.3, 8.7, -15.7, -5.8 } };
-	array b = {-2.4, 5.6, 7.7, 23.4};
+		{ 8.8, -6.7, 5.5, -4.5 },
+		{ 6.3, -5.7, -23.4, 6.6 },
+		{ 14.3, 8.7, -15.7, -5.8 }
+	};
+	array b = { -2.4, 5.6, 7.7, 23.4};
 	matrix Q(n, array(n, 0.0)); // Q is actually Q_T
 	matrix R = A;
 	for (int i = 0; i < n; i++) // set Q as identity matrix
@@ -88,7 +89,7 @@ int main()
 		double magn = 0.0;
 		for (int i = 0; i < u.size(); i++)
 			magn += u[i] * u[i];
-		u[0] += sqrt(magn)* ((R[g][g] > 0) ? 1.0 : -1.0);
+		u[0] += sqrt(magn) * ((R[g][g] > 0) ? 1.0 : -1.0);
 
 		magn = 0.0;
 		for (int i = 0; i < u.size(); i++)
@@ -104,12 +105,12 @@ int main()
 		R = P * R;
 		Q = P * Q;
 	}
-	
+
 	cout << "Q_T: \n";
 	print(Q);
 	cout << "R: \n";
 	print(R);
-	
+
 	//determinant
 	double eps;
 	cout << "enter eps: ";

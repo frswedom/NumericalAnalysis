@@ -10,10 +10,10 @@ const double eps = 1e-8;
 
 double solve(double b)
 {
-	return (sqrt(b*b + 4.0) - b) / 2.0;
+	return (sqrt(b * b + 4.0) - b) / 2.0;
 }
 
-matrix operator*(matrix lhs,matrix rhs)
+matrix operator*(matrix lhs, matrix rhs)
 {
 	if (lhs[0].size() != rhs.size())
 		return matrix();
@@ -58,7 +58,7 @@ void print(matrix val)
 	}
 }
 
-pair<int,int> find_elem(matrix val)
+pair<int, int> find_elem(matrix val)
 {
 	int x = 0, y = 0;
 	double max = 0.0;
@@ -87,7 +87,8 @@ int main()
 		{ 2.0, 1.2, -1.0, 1.0 },
 		{ 1.2, 0.5, 2.0, -1.0 },
 		{ -1.0, 2.0, -1.5, 0.2 },
-		{ 1.0, -1.0, 0.2, 1.5 } };
+		{ 1.0, -1.0, 0.2, 1.5 }
+	};
 	matrix Identity(n, array(n));
 	for (int i = 0; i < n; ++i)
 		Identity[i][i] = 1.0;
@@ -99,7 +100,7 @@ int main()
 		int p = pos.first, q = pos.second;
 		double theta = (A[q][q] - A[p][p]) / A[p][q];
 		double t = solve(theta);
-		double c = 1.0 / sqrt(t*t + 1.0);
+		double c = 1.0 / sqrt(t * t + 1.0);
 		double s = c * t;
 		matrix P(Identity);
 		P[p][p] = c;

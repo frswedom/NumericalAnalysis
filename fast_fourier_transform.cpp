@@ -15,7 +15,7 @@ const uint N = 1024;
 
 double f(double t)
 {
-	return -10 * sin(pi*t / 18) + 5 * sin(pi*t / 80); // T1 = 36  T2 = 160
+	return -10 * sin(pi * t / 18) + 5 * sin(pi * t / 80); // T1 = 36  T2 = 160
 }
 
 double f2(double t)
@@ -79,7 +79,7 @@ int main()
 	{
 		for (uint k = 0; k < (N - j); k++)
 		{
-			r[j] += (f(j + k) - avg_f)*(f(k) - avg_f);
+			r[j] += (f(j + k) - avg_f) * (f(k) - avg_f);
 		}
 	}
 	for (uint j = 1; j < N; ++j)
@@ -101,9 +101,9 @@ int main()
 
 	for (int i = 0; i < N; i++)
 	{
-		out << sqrt(r[i].real()*r[i].real()+ r[i].imag()*r[i].imag()) << '\n';
+		out << sqrt(r[i].real()*r[i].real() + r[i].imag()*r[i].imag()) << '\n';
 	}
 	out.close();
-    return 0;
+	return 0;
 }
 
